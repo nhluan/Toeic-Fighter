@@ -1,7 +1,8 @@
 class SiteController {
     //home page
     index(req, res, next) {
-        res.send('home');
+        res.render('signup');
     }
 }
 module.exports = new SiteController();
+``

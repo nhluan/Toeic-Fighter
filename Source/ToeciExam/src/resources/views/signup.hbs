@@ -1,0 +1,39 @@
+<div class=" main">
+
+    <form class="cd-form frames" action='' method="POST" id="login">
+        <h1 class="center">Đăng ký tài khoản</h1>
+
+        <div class="form-group">
+            <div class="form-line ">
+                <i class="far fa-user"></i>
+                <input name="username" id="username" type="text" placeholder="Tên đăng ký" class="form-input">
+            </div>
+            <span class="form-message" id="submit"></span>
+        </div>
+        <div class="form-group">
+            <div class="form-line">
+
+                <i class="fas fa-key"></i>
+                <input class="form-input" id="password" type="password" name="password" placeholder="Mật khẩu">
+                <div id="eye">
+                    <i class="far fa-eye" onclick="myFunction('password')"></i>
+                </div>
+            </div>
+            <span class="form-message" id="submit"></span>
+        </div>
+        <div class="form-group">
+            <div class="form-line">
+
+                <i class="fas fa-key"></i>
+                <input class="form-input" id="password_confirmation" type="password" name="password_confirmation"
+                    placeholder="Nhập Lại Mật khẩu">
+                <div id="eye">
+                    <i class="far fa-eye" onclick="myFunction('password_confirmation')"></i>
+                </div>
+            </div>
+            <span class="form-message" id="submit"></span>
+        </div>
+        <input class="form-submit frames" type="submit" value="Đăng Ký">
+    </form>
+
+</div>
