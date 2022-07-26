@@ -23,7 +23,7 @@ class authController {
         return res.status(201).json({
           message: "Account created",
           result,});
-        // return res.redirect("/signin");
+          //return res.redirect("/signin");
       });
     });
   }
