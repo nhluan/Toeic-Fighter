@@ -1,39 +1,90 @@
-<div class=" main">
+<!DOCTYPE html>
+<html lang="en">
 
-    <form class="cd-form frames" action='' method="POST" id="login">
-        <h1 class="center">Đăng ký tài khoản</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!--link enter -->
 
-        <div class="form-group">
-            <div class="form-line ">
-                <i class="far fa-user"></i>
-                <input name="username" id="username" type="text" placeholder="Tên đăng ký" class="form-input">
-            </div>
-            <span class="form-message" id="submit"></span>
-        </div>
-        <div class="form-group">
-            <div class="form-line">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <link rel="stylesheet" href="/css/auth.css">
 
-                <i class="fas fa-key"></i>
-                <input class="form-input" id="password" type="password" name="password" placeholder="Mật khẩu">
-                <div id="eye">
-                    <i class="far fa-eye" onclick="myFunction('password')"></i>
+</head>
+
+<body>
+    <div class="app">
+        {{> header}}
+
+
+        <div class=" main">
+
+            <form class="cd-form frames" action='' method="POST" id="login">
+                <h1 class="center">Đăng ký tài khoản</h1>
+
+                <div class="form-group">
+                    <div class="form-line ">
+                        <i class="far fa-user"></i>
+                        <input name="username" id="username" type="text" placeholder="Tên đăng ký" class="form-input">
+                    </div>
+                    <span class="form-message" id="submit"></span>
                 </div>
-            </div>
-            <span class="form-message" id="submit"></span>
-        </div>
-        <div class="form-group">
-            <div class="form-line">
+                <div class="form-group">
+                    <div class="form-line">
 
-                <i class="fas fa-key"></i>
-                <input class="form-input" id="password_confirmation" type="password" name="password_confirmation"
-                    placeholder="Nhập Lại Mật khẩu">
-                <div id="eye">
-                    <i class="far fa-eye" onclick="myFunction('password_confirmation')"></i>
+                        <i class="fas fa-key"></i>
+                        <input class="form-input" id="password" type="password" name="password" placeholder="Mật khẩu">
+                        <div id="eye">
+                            <i class="far fa-eye" onclick="myFunction('password')"></i>
+                        </div>
+                    </div>
+                    <span class="form-message" id="submit"></span>
                 </div>
-            </div>
-            <span class="form-message" id="submit"></span>
-        </div>
-        <input class="form-submit frames" type="submit" value="Đăng Ký">
-    </form>
+                <div class="form-group">
+                    <div class="form-line">
 
-</div>
+                        <i class="fas fa-key"></i>
+                        <input class="form-input" id="password_confirmation" type="password"
+                            name="password_confirmation" placeholder="Nhập Lại Mật khẩu">
+                        <div id="eye">
+                            <i class="far fa-eye" onclick="myFunction('password_confirmation')"></i>
+                        </div>
+                    </div>
+                    <span class="form-message" id="submit"></span>
+                </div>
+                <input class="form-submit frames" type="submit" value="Đăng Ký">
+            </form>
+
+        </div>
+        {{> footer}}
+    </div>
+    <script src="/js/auth.js"></script>
+    <script>
+        validator({
+            form: '#login',
+            errorSelector: '.form-message',
+            rules: [
+                validator.isRequired('#username'),
+                validator.isAccount('#username'),
+                validator.isRequired('#password'),
+                validator.isPassword('#password'),
+                validator.isRequired('#password_confirmation'),
+
+                validator.isConfirmed('#password_confirmation', function () {
+                    return document.querySelector('#login #password').value
+                })
+            ],
+            onSubmit: function (data) {
+                console.log(data)
+                // backend xử lý
+            }
+
+        })
+    </script>
+
+</body>
+
+</html>

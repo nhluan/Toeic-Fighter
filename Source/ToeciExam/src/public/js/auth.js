@@ -9,7 +9,7 @@ function myFunction(options) {
 function validator(options) {
 
     var selectorRules = {}
-    // hamf thuc hien valide
+    // hamf thuc hien validate
     function validate(inputElement, rule) {
         // lấy đc value
         // test func
