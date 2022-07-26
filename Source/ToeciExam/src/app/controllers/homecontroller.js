@@ -1,7 +1,7 @@
 class SiteController {
     //home page
     index(req, res, next) {
-        res.render('signin', { layout: false });
+        res.render('home', { layout: false });
     }
     sigup(req, res, next) {
         res.render('signup', { layout: false });
