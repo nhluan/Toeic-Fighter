@@ -16,13 +16,13 @@ class authController {
         if (account) {
           const conflic = "user have already existed";
           console.log(conflic);
-          return res.render("signup",{ layout: false}, { username, password, conflic });
+          return res.render("signup", { layout: false }, { username, password, conflic });
         } else {
           bcrypt.hash(myPlaintextPassword, 10, (err, hashed) => {
             if (err) {
               console.log("loix 1");
               console.log(err);
-              return res.render("signup",{layout:false});
+              return res.render("signup", { layout: false });
             } else {
               const account = new Account({
                 username,
@@ -43,7 +43,7 @@ class authController {
         }
       });
     } else {
-      return res.render("signup",{layout:false});
+      return res.render("signup", { layout: false });
     }
   }
   signin(req, res, next) {

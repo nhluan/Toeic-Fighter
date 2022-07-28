@@ -62,8 +62,21 @@ function validator(options) {
             values[input.name] = input.value;
             return values;
           },
-          {});
-
+            {});
+          var postAPI = 'http://localhost:5000/auth/signin'
+          function start() {
+            get(function (post1) {
+              console.log(post1)
+            })
+          }
+          start()
+          function get(callback) {
+            fetch(postAPI)
+              .then(function (response) {
+                return response.json()
+              })
+              .then(callback)
+          }
           options.onSubmit(formValues);
         }
       }
