@@ -1,10 +1,10 @@
 const homeRouter = require("./home");
-const minitestRouter = require("./miniTest.route");
+const testRouter = require("./test");
 const authRouter = require("./auth.route");
 
 function route(app) {
   app.use("/auth", authRouter)
-  app.use("/minitest",minitestRouter)
+  app.use("/test",testRouter)
   app.use("/", homeRouter);
 }
 
