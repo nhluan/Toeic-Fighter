@@ -73,13 +73,14 @@ class authController {
             }
             console.log(result);
             if (result) {
-              // req.session.username = username;
+              req.session.username = username;
               //  res.session.account = account;
               //res.redirect("/");
               // return res.status(200).json({
               //   message: "Login successful",
               //   account,
               // });
+              
               return res.redirect("/");
             }
             if (!result) {
