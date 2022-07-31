@@ -38,14 +38,14 @@ function validator(options) {
     // xử lý khi submit
 
     formElement.onsubmit = function (check) {
-      // check.preventDefault();
+      check.preventDefault();
 
       var isSuccess = true;
 
       // lặp qua từng rules và validate
       options.rules.forEach(function (rule) {
         var inputElement = formElement.querySelector(rule.selector);
-        console.log(inputElement);
+        // console.log(inputElement);
         var isValid = validate(inputElement, rule);
         if (!isValid) {
           isSuccess = false;
@@ -63,21 +63,8 @@ function validator(options) {
             return values;
           },
             {});
-          var postAPI = 'http://localhost:5000/auth/signin'
-          function start() {
-            get(function (post1) {
-              console.log(post1)
-            })
-          }
-          start()
-          function get(callback) {
-            fetch(postAPI)
-              .then(function (response) {
-                return response.json()
-              })
-              .then(callback)
-          }
-          options.onSubmit(formValues);
+          console.log(formValues)
+          // options.onSubmit(formValues);
         }
       }
     };
