@@ -1,9 +1,7 @@
-class SiteController {
-    //home page
-    index(req, res, next) {
-        res.render('signin', { layout: false });
-    }
-   
+class HomeController {
+  //home page
+  index(req, res, next) {
+    res.render("home", { layout: false });
+  }
 }
-module.exports = new SiteController();
-``
+module.exports = new HomeController();

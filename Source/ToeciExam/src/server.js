@@ -5,6 +5,7 @@ const handlebars = require("express-handlebars")
 const bodyParser = require("body-parser");
 const route = require("./routes");
 const db = require("./config/database");
+const session = require("express-session")
 
 const app = express();
 const port = 5000;
@@ -21,6 +22,13 @@ app.use(bodyParser.json());
 db.connect();
 
 app.use(morgan("combined"));
+
+app.use (session({
+  secret: 'abcdefg',
+  resave: true,
+  saveUninitialized: true,
+  cookie: { maxAge: 60000 }
+}))
 
 route(app);
 

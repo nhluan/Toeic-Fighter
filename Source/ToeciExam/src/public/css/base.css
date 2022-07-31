@@ -1,0 +1,240 @@
+:root {
+  --white-color: #fff;
+  --black-color: #000;
+  --text-color: #333;
+  --primary-color: #318ab1;
+  --border-color: #dbdbdb;
+  --header-height: 90px;
+  --navbar-height: 34px;
+  --header-with-search-height: calc(var(--header-height) - var(--navbar-height) - 8px);
+  --header-sort-bar-height: 46px;
+}
+
+* {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  line-height: 1.6rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+.grid__row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -5px;
+  margin-right: -5px;
+}
+
+/* Test */
+.grid__column-2 {
+  width: 16.6667%;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.grid__column-2-4 {
+  width: 20%;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.grid__column-10 {
+  width: 83.3333%;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  animation: headerNotificationGrowth linear 0.1s;
+}
+
+.modal__overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+}
+
+.modal__body {
+  /* width: 300px;
+    height: 300px; */
+  /* position: relative; */
+  z-index: 1;
+  margin: auto;
+}
+
+.btn {
+  height: 40px;
+  font-size: 2rem;
+  min-width: 130px;
+  border: 1px solid var(--border-color);
+  border-style: none;
+  border-radius: 2px;
+  /* margin: 30px 0; */
+  background-color: var(--white-color);
+  margin: 20px 0;
+  outline: none;
+}
+
+.btn.btn--normal {
+  cursor: pointer;
+}
+
+.btn.btn--back:hover {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+
+.btn.btn--primary {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  font-weight: 350;
+}
+
+.btn--back {
+  margin-right: 10px;
+}
+
+.btn.btn--disable {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.container {
+  background-color: #f5f5f5;
+  border-bottom: 4px solid var(--primary-color);
+}
+
+.container-blog {
+  background-color: #f5f5f5;
+  border-bottom: 4px solid var(--primary-color);
+  margin-top: var(--header-height);
+}
+
+.select-input {
+  background-color: var(--white-color);
+  width: 200px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  position: relative;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.select-input:hover .select-input__list {
+  display: block;
+}
+
+.select-input-lable {
+  font-size: 1.6rem;
+  color: var(--text-color);
+  font-weight: 400;
+}
+
+.select-input-icon {
+  font-size: 1.4rem;
+}
+
+.select-input__list {
+  background-color: var(--white-color);
+  width: 100%;
+  position: absolute;
+  margin: 0;
+  top: 100%;
+  left: 0;
+  list-style: none;
+  padding-left: 0;
+  border-radius: 2px;
+  border-top: 1px solid var(--border-color);
+  display: none;
+  z-index: 1;
+}
+
+.select-input__item {
+  display: block;
+  padding: 10px 12px;
+}
+
+.select-input__item:first-child {
+  margin-top: 6px;
+}
+
+.select-input__item:last-child {
+  margin-bottom: 6px;
+}
+
+.select-input__item-link {
+  text-decoration: none;
+  font-size: 1.4rem;
+  color: var(--text-color);
+  width: 100%;
+  display: block;
+}
+
+.select-input__item-link:hover {
+  color: var(--primary-color);
+}
+
+/* pagination */
+.pagination {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+  padding-left: 0;
+}
+
+.pagination-item {
+  margin: 0px 15px;
+}
+
+.pagination-item--active .pagination-item__link {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+}
+
+.pagination-item--active:hover .pagination-item__link {
+  background-color: var(--primary-color);
+  opacity: 0.8;
+  color: var(--white-color);
+}
+
+.pagination-item--three-dot:hover .pagination-item__link {
+  cursor: default;
+}
+
+.pagination-item__link {
+  display: block;
+  text-decoration: none;
+  font-size: 2rem;
+  /* background-color: var(--white-color); */
+  height: 30px;
+  min-width: 40px;
+  color: rgba(0, 0, 0, 0.4);
+  text-align: center;
+  line-height: 30px;
+  border-radius: 2px;
+}
+
+.pagination-item__link:hover .pagination-item__icon {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.pagination-item__link:hover {
+  color: var(--primary-color);
+}
+
+.rounded-circle {
+  border-radius: 50% !important;
+}
