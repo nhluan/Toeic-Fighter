@@ -14,15 +14,24 @@
   "author": "group6",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.27.2",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.20.0",
+    "cloudinary": "^1.30.1",
+    "cors": "^2.8.5",
     "express": "^4.18.1",
     "express-handlebars": "^6.0.6",
     "express-session": "^1.17.3",
+<<<<<<< HEAD
     "i": "^0.3.7",
+=======
+    "http-errors": "^2.0.0",
+>>>>>>> 17ecf1cd67ae88b521bca6365a03b5ee4cab3af2
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.4.6",
-    "node-sass": "^7.0.1"
+    "node-sass": "^7.0.1",
+    "path": "^0.12.7",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "morgan": "^1.10.0",
