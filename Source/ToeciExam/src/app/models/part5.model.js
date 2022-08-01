@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const parttestSchema = new Schema(
+const part5Schema = new Schema(
     {
         test: {
             type: String
@@ -520,4 +520,4 @@ const parttestSchema = new Schema(
     }
 );
 
-module.exports = mongoose.model("part5", parttestSchema);
+module.exports = mongoose.model("part5", part5Schema);

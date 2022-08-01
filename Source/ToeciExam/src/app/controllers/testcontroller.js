@@ -1,6 +1,6 @@
 const Test = require("../models/test.model");
-const partTest = require("../models/partTest.model")
-
+const part5 = require("../models/part5.model")
+const part5Answer = require("../models/part5Answer.model")
 
 class testController {
   showTest(req,res,next){
@@ -21,11 +21,11 @@ class testController {
     }
     else res.render("signin",{layout : false})
   }
- showPartTest(req,res,next){
+ showPartTest(req,res,next){ // show thi part ? test ?
   var part = req.params.part
   var test = req.params.test
 
-  partTest.find({test},function(err,parttest){
+  part5.find({test},function(err,parttest){
     if(err){
       console.log("loix 1");
       console.log(err);
@@ -57,8 +57,9 @@ class testController {
   //   res.render("part7_test",{ test : test} );
   // }
  }
-
+ markExam(req,res,next){ // chấm điểm part ? test ?
+   
+ }
 }
-
 
 module.exports = new testController(); 
