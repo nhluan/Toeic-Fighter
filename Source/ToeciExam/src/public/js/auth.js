@@ -55,16 +55,17 @@ function validator(options) {
       if (isSuccess) {
         if (typeof options.onSubmit === "function") {
           var enableInputs = formElement.querySelectorAll("[name]");
-          var formValues = Array.from(enableInputs).reduce(function (
-            values,
-            input
-          ) {
+          console.log(enableInputs.length)
+
+          var formValues = Array.from(enableInputs).reduce(function (values, input) {
             values[input.name] = input.value;
             return values;
-          },
-            {});
-          console.log(formValues)
-          // options.onSubmit(formValues);
+          }, {});
+          var data
+          data = JSON.stringify({ "username": formValues['username'], "password": formValues['password'] });
+
+          // console.log(data)
+          options.onSubmit(data);
         }
       }
     };
