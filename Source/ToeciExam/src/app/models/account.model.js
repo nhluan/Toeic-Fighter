@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+
+
 const acountSchema = new Schema(
   {
     username: {
@@ -26,3 +28,4 @@ const acountSchema = new Schema(
 );
 
 module.exports = mongoose.model("account", acountSchema);
+
