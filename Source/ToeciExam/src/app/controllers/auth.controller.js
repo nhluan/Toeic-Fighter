@@ -1,6 +1,5 @@
 const bcrypt = require("bcrypt");
-const Account = require("../models/account.model");
-const myPlaintextPassword = "s0//P4$$w0rd";
+const accountModel = require("../models/account.model");
 class authController {
   showSignup(req, res) {
     res.render("signup", { layout: false });
@@ -10,32 +9,34 @@ class authController {
   }
 
   signup(req, res, next) {
-    const { username, password } = req.body;
-    if (username && password) {
-      Account.findOne(username, (err, account) => {
+    const entity = req.body;
+    // const { username, password } = req.body;
+    if (entity.username && entity.password) {
+      accountModel.findOne(entity.username, (err, account) => {
         if (account) {
           const conflic = "user have already existed";
           console.log(conflic);
-          return res.render("signup", { layout: false }, { username, password, conflic });
+          return res.render(
+            "signup",
+            { layout: false },
+            { username, password, conflic }
+          );
         } else {
-          bcrypt.hash(myPlaintextPassword, 10, (err, hashed) => {
+          bcrypt.hash(entity.password, 10, (err, hashed) => {
             if (err) {
               console.log("loix 1");
               console.log(err);
               return res.render("signup", { layout: false });
             } else {
-              const account = new Account({
-                username,
+              const account = new accountModel({
+                username: entity.username,
                 password: hashed,
               });
-              Account.create(account, (err, account) => {
+              accountModel.create(account, (err, account) => {
                 if (err) {
-                  // return res.status(500).json({
-                  //   error: err,
-                  // });
                   console.log("loi 2");
                   //return res.render("signup",{layout:false});
-                } else return res.redirect("/auth/signin");
+                } else return res.status(200).json("tao tai khoan thanh cong");
                 // return res.redirect("/signin");
               });
             }
@@ -49,7 +50,7 @@ class authController {
   signin(req, res, next) {
     const { username, password } = req.body;
     console.log(req.body);
-    Account.findOne({ username }, (err, account) => {
+    accountModel.findOne({ username }, (err, account) => {
       if (err) {
         //loi server
         console.log("loi server");
@@ -62,7 +63,7 @@ class authController {
           });
         } else {
           console.log("\n\nuser found\n\n");
-          bcrypt.compare(myPlaintextPassword, password, (err, result) => {
+          bcrypt.compare(password, account.password, (err, result) => {
             console.log(account.password);
             console.log(password);
             if (err) {
@@ -73,14 +74,9 @@ class authController {
             }
             console.log(result);
             if (result) {
-              req.session.username = username;
-              //  res.session.account = account;
-              //res.redirect("/");
-              // return res.status(200).json({
-              //   message: "Login successful",
-              //   account,
-              // });
-              
+              req.session.isAuth = true;
+              req.session.authUser = account;
+
               return res.redirect("/");
             }
             if (!result) {
@@ -104,5 +100,4 @@ class authController {
     }
   }
 }
-
 module.exports = new authController();

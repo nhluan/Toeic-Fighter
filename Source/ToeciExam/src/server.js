@@ -25,7 +25,7 @@ app.use(morgan("combined"));
 
 app.use (session({
   secret: 'abcdefg',
-  resave: true,
+  resave: false,
   saveUninitialized: true,
   cookie: { maxAge: 60000 }
 }))
