@@ -33,7 +33,7 @@ class authController {
                   console.log(account);
                   console.log(newAccount);
                   //return res.render("signup",{layout:false});
-                } else return res.redirect("/auth/signin");
+                } else return res.redirect("http://localhost:5000/auth/signin");
                 // return res.redirect("/signin");
               });
             }

@@ -76,7 +76,11 @@
             errorSelector: '.form-message',
             rules: [
                 validator.isRequired('#username'),
+                validator.isAccount('#username'),
+
                 validator.isRequired('#password'),
+                validator.isPassword('#password'),
+
             ],
             onSubmit: function (data) {
                 console.log(data)
@@ -97,7 +101,13 @@
                 };
                 // Sending data with the request
                 xhr.send(data);
+                xhr.addEventListener('load', function () {
+                    received_data = JSON.parse(xhr.responseText);
+                    console.log(xhr.responseText)
+                    window.location.href('http://localhost:5000/')
 
+
+                })
             }
         })
     </script>

@@ -85,9 +85,7 @@ function validator(options) {
         };
         inputElement.oninput = function () {
           var errorElement =
-            inputElement.parentElement.parentElement.querySelector(
-              ".form-message"
-            );
+            inputElement.parentElement.parentElement.querySelector(".form-message");
           errorElement.innerText = "";
           inputElement.parentElement.parentElement.classList.remove("invalid");
           inputElement.parentElement.parentElement.classList.remove("valid");
