@@ -1,0 +1,87 @@
+.gallery-display-area {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.gallery-wrap {
+    width: 500%;
+    animation: slideShow 16s infinite;
+}
+
+.image {
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    float: left;
+    height: 608px;
+    width: 1509px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-box-reflect: below 1px -webkit-gradient(linear, right top, right bottom,
+            from(transparent), to(rgba(255, 255, 255, 0.3)));
+
+}
+
+.review-comment-area {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.review-wrap {
+    width: 500%;
+    animation: slideShow 16s infinite;
+}
+
+.review-comment {
+    float: left;
+    height: 100%;
+    width: 669px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    -webkit-box-reflect: below 1px -webkit-gradient(linear, right top, right bottom,
+            from(transparent), to(rgba(255, 255, 255, 0.3)));
+}
+
+@keyframes slideShow {
+    20% {
+        margin-left: 0;
+    }
+
+    30% {
+        margin-left: -100%;
+    }
+
+    40% {
+        margin-left: -100%;
+    }
+
+    50% {
+        margin-left: -200%;
+    }
+
+    60% {
+        margin-left: -200%;
+    }
+
+    70% {
+        margin-left: -300%;
+    }
+
+    80% {
+        margin-left: -300%;
+    }
+
+    90% {
+        margin-left: -400%;
+    }
+
+    100% {
+        margin-left: -400%;
+    }
+}

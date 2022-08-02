@@ -38,14 +38,14 @@ function validator(options) {
     // xử lý khi submit
 
     formElement.onsubmit = function (check) {
-      // check.preventDefault();
+      check.preventDefault();
 
       var isSuccess = true;
 
       // lặp qua từng rules và validate
       options.rules.forEach(function (rule) {
         var inputElement = formElement.querySelector(rule.selector);
-        console.log(inputElement);
+        // console.log(inputElement);
         var isValid = validate(inputElement, rule);
         if (!isValid) {
           isSuccess = false;
@@ -55,29 +55,17 @@ function validator(options) {
       if (isSuccess) {
         if (typeof options.onSubmit === "function") {
           var enableInputs = formElement.querySelectorAll("[name]");
-          var formValues = Array.from(enableInputs).reduce(function (
-            values,
-            input
-          ) {
+          console.log(enableInputs.length)
+
+          var formValues = Array.from(enableInputs).reduce(function (values, input) {
             values[input.name] = input.value;
             return values;
-          },
-            {});
-          var postAPI = 'http://localhost:5000/auth/signin'
-          function start() {
-            get(function (post1) {
-              console.log(post1)
-            })
-          }
-          start()
-          function get(callback) {
-            fetch(postAPI)
-              .then(function (response) {
-                return response.json()
-              })
-              .then(callback)
-          }
-          options.onSubmit(formValues);
+          }, {});
+          var data
+          data = JSON.stringify({ "username": formValues['username'], "password": formValues['password'] });
+
+          // console.log(data)
+          options.onSubmit(data);
         }
       }
     };
@@ -97,9 +85,7 @@ function validator(options) {
         };
         inputElement.oninput = function () {
           var errorElement =
-            inputElement.parentElement.parentElement.querySelector(
-              ".form-message"
-            );
+            inputElement.parentElement.parentElement.querySelector(".form-message");
           errorElement.innerText = "";
           inputElement.parentElement.parentElement.classList.remove("invalid");
           inputElement.parentElement.parentElement.classList.remove("valid");

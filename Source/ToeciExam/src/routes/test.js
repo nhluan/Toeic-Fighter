@@ -5,6 +5,7 @@ const auth = require("../app/middlewares/auth.middleware");
 
 router.get("/part:part", testController.showPart);
 router.get("/part:part/test:test", testController.showPartTest);
+router.post("/part:part/test:test", testController.markExam);
 
 router.get("/", auth.restrict, testController.showTest);
 //router.post("/signup", authController.signup);
