@@ -101,4 +101,4 @@ const part5AnswerSchema = new Schema(
 }
 );
 
-module.exports = mongoose.model("part5Answer", part5AnswerSchema);
+module.exports = mongoose.model("part5answers", part5AnswerSchema);
