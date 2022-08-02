@@ -7,6 +7,7 @@ const route = require("./routes");
 const db = require("./config/database");
 const session = require("express-session")
 
+
 const app = express();
 const port = 5000;
 app.use(express.static(path.join(__dirname, 'Public')))
@@ -30,6 +31,7 @@ app.use (session({
   cookie: { maxAge: 60000 }
 }))
 
+require("./app/middlewares/local.middleware")(app);
 route(app);
 
 app.listen(port, () => {
