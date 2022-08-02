@@ -1,5 +1,3 @@
-
-
 module.exports = {
     restrict:(req, res, next) =>
     {

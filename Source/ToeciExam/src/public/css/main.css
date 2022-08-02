@@ -1776,3 +1776,22 @@ label {
     font-size: 1.6rem;
     margin: 10px 0;
 }
+
+/* page not found */
+.page-not-found {
+    width: 100%;
+}
+
+
+/* part 1 */
+.picture-area {
+    text-align: center;
+}
+.audio-area {
+    text-align: center;
+}
+
+audio {
+    display: inline-block;
+    vertical-align: baseline;
+}
