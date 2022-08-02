@@ -97,14 +97,10 @@ class authController {
       }
     });
   }
-  requireLogin(req, res, next) {
-    if (req.session.username) {
-      next();
-    } else {
-      return res.status(401).json({
-        error: "Login required",
-      });
-    }
+  signout(req, res, next) {
+    req.session.isAuth = false;
+    req.session.authUser = null;
+    return res.redirect("/");
   }
 }
 
