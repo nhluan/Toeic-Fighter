@@ -155,6 +155,29 @@
         };
         // Sending data with the request
         xhr.send(data);
+        xhr.addEventListener('load', function () {
+          received_data = JSON.parse(xhr.responseText);
+          console.log(received_data)
+          //  window.location.assign('http://localhost:5000/')
+          if (received_data === "tao tai khoan thanh cong") {
+            alert('Đăng Ký thành công')
+            window.location.assign('http://localhost:5000/auth/signin')
+          }
+          else {
+
+            var formElement = document.querySelector('#signin');
+            //console.log(formElement)
+            var inputElement = formElement.querySelector(".form-message");
+            //console.log(inputElement)
+
+            var errorElement =
+              inputElement.parentElement.parentElement.querySelector(".form-message");
+            inputElement.innerText = received_data["error"];
+            inputElement.parentElement.classList.remove("valid");
+            inputElement.parentElement.classList.add("invalid");
+          }
+
+        })
 
 
       }

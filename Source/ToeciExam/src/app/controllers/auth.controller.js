@@ -22,7 +22,7 @@ class authController {
             bcrypt.hash(password, 10, (err, hashed) => {
               if (err) {
                 console.log("loi k hash duoc password");
-                return res.json({error : "lỗi sever"});
+                return res.json({ error: "lỗi sever" });
               } else {
                 const newAccount = new accountModel({
                   username,
@@ -60,7 +60,7 @@ class authController {
       if (err) {
         //loi server
         console.log("loi tim kiem account");
-        return res.status(401).json({error:"lỗi tìm kiếm"});
+        return res.status(401).json({ error: "lỗi tìm kiếm" });
       } else {
         if (!account) {
           console.log("không tìm thấy user");
@@ -85,7 +85,8 @@ class authController {
               req.session.isAuth = true;
               req.session.authUser = username;
               // return res.redirect("/");
-              return res.status(200).json("dang nhap thanh cong");
+              return res.json({ username: account.username });
+
             }
             if (!result) {
               return res.status(401).json({

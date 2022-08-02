@@ -27,7 +27,8 @@
                                 chủ</a>
                         </li>
                         <li class="navbar__item">
-                            <a href="http://localhost:5000/blog" class="navbar__item-link navbar__item-link--separate">Bài viết</a>
+                            <a href="http://localhost:5000/blog"
+                                class="navbar__item-link navbar__item-link--separate">Bài viết</a>
                         </li>
                         <li class="navbar__item navbar__item--has-qr">
                             <a href="" class="navbar__item-link navbar__item-link--separate">Thảo luận</a>
@@ -54,12 +55,21 @@
                                     <i class="navbar__item-icon fa-brands fa-instagram"></i>
                                 </a> -->
                         </li>
+                        {{#if lcIsAuth}}
+                        <li class="navbar__item">
+                            <a class="navbar__item-link navbar__item-link--separate">hi,user</a>
+                        </li>
+                        <li class="navbar__item">
+                            <a href="/auth/signup" class="navbar__item-link ">Đăng xuất</a>
+                        </li>
+                        {{else}}
                         <li class="navbar__item">
                             <a href="/auth/signin" class="navbar__item-link navbar__item-link--separate">Đăng nhập</a>
                         </li>
                         <li class="navbar__item">
                             <a href="/auth/signup" class="navbar__item-link ">Đăng ký</a>
                         </li>
+                        {{/if}}
                     </ul>
                 </nav>
             </div>

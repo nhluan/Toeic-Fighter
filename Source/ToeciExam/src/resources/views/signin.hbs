@@ -101,11 +101,28 @@
                 };
                 // Sending data with the request
                 xhr.send(data);
+                //window.location.assign('http://localhost:5000/')
+
                 xhr.addEventListener('load', function () {
                     received_data = JSON.parse(xhr.responseText);
-                    console.log(xhr.responseText)
-                    window.location.href('http://localhost:5000/')
+                    console.log(received_data)
+                    //  window.location.assign('http://localhost:5000/')
+                    if (received_data.username === undefined) {
+                        var formElement = document.querySelector('#signin');
+                        console.log(formElement)
+                        var inputElement = formElement.querySelector(".form-message");
+                        console.log(inputElement)
 
+                        var errorElement =
+                            inputElement.parentElement.parentElement.querySelector(".form-message");
+                        inputElement.innerText = received_data["error"];
+                        inputElement.parentElement.classList.remove("valid");
+                        inputElement.parentElement.classList.add("invalid");
+                    }
+                    else {
+                        alert('Đăng Nhập thành công')
+                        window.location.assign('http://localhost:5000/')
+                    }
 
                 })
             }
