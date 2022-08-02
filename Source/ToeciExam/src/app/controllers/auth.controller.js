@@ -17,12 +17,12 @@ class authController {
         .findOne({ username: username })
         .then(user => {
           if (user)
-            return res.status(400).json({ message: "Username already exists" });
+            return res.status(400).json({ error: "username khong ton tai" });
           else {
             bcrypt.hash(password, 10, (err, hashed) => {
               if (err) {
                 console.log("loi k hash duoc password");
-                return res.render("signup", { layout: false });
+                return res.json(error: "lỗi sever");
               } else {
                 const newAccount = new accountModel({
                   username,
@@ -37,7 +37,7 @@ class authController {
                     //return res.render("signup",{layout:false});
                   } else {
                     console.log("\n\nuser created\n\n");
-                    return res.redirect("/auth/signin");
+                    return res.json("tao tai khoan thanh cong")
                   }
                   // return res.redirect("/signin");
                 });
@@ -60,12 +60,12 @@ class authController {
       if (err) {
         //loi server
         console.log("loi tim kiem account");
-        return res.render("signin");
+        return res.status(401).json(error:"lỗi tìm kiếm");
       } else {
         if (!account) {
-          console.log("khong tim thay user");
+          console.log("không tìm thấy user");
           return res.status(401).json({
-            error: "khong dung username",
+            error: "không đúng username",
           });
         } else {
           console.log("\n\nuser found\n\n");
@@ -75,7 +75,7 @@ class authController {
             if (err) {
               console.log("loi xac thuc password");
               return res.status(401).json({
-                error: "Invalid credentials 1",
+                error_sever: "lỗi sever",
               });
             }
             console.log(result);
@@ -89,7 +89,7 @@ class authController {
             }
             if (!result) {
               return res.status(401).json({
-                error: "Invalid credentials 2",
+                error_password: "mật khẩu không hợp lệ",
               });
             }
           });
