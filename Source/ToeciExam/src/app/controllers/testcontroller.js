@@ -5,7 +5,7 @@ const part5Answer = require("../models/part5Answer.model");
 
 class testController {
   showTest(req, res, next) {
-    res.render("test");
+    res.render("test", { layout: false });
   }
 
   showPart(req, res, next) {
@@ -38,7 +38,7 @@ class testController {
           res.render("test", { layout: false });
         }
         res.render("part1_test", { parttest });
-       // res.send({ message: "lấy đề thành công", part1: parttest });
+        return res.json(parttest);
       });
     } else if (part == 2) {
       res.render("part2_test", { test: test });
