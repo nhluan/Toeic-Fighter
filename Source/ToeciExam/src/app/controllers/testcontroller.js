@@ -37,8 +37,8 @@ class testController {
           console.log(err);
           res.render("test", { layout: false });
         }
-        res.render("part1_test", { parttest });
-        return res.json(parttest);
+        return res.render("part1_test", { parttest });
+        //       return res.json(parttest);
       });
     } else if (part == 2) {
       res.render("part2_test", { test: test });
