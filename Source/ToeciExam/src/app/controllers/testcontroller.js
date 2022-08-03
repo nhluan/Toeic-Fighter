@@ -37,8 +37,8 @@ class testController {
           console.log(err);
           res.render("test", { layout: false });
         }
-        // res.render("part1_test", { parttest });
-        res.json(parttest);
+        res.render("part1_test", { parttest });
+       // res.send({ message: "lấy đề thành công", part1: parttest });
       });
     } else if (part == 2) {
       res.render("part2_test", { test: test });

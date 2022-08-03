@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const route = require("./routes");
 const db = require("./config/database");
 const session = require("express-session");
+const initAPIRoute = require("./api");
 
 const app = express();
 const port = 5000;
@@ -34,7 +35,7 @@ app.use(
 
 require("./app/middlewares/local.middleware")(app);
 route(app);
-
+initAPIRoute(app);
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);
 });
