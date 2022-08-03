@@ -35,7 +35,12 @@ class testController {
           console.log(err);
           res.render("test", { layout: false });
         }
+<<<<<<< HEAD
         res.render("part1_test");
+=======
+        return res.render("part1_test", { parttest });
+        //       return res.json(parttest);
+>>>>>>> 1ccc0501b79e95e9e45760bf8a092fec5dd1db4f
       });
     } else if (part == 2) {
       res.render("part2_test", { test: test });
