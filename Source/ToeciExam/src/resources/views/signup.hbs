@@ -22,48 +22,95 @@
   <div class="app">
     {{> header}}
 
-    <div class="container">
 
-      <div class=" main">
+    <div class=" main">
 
-        <form class="cd-form frames" action='/auth/signup' method="POST" id="login">
-          <h1 class="center">Đăng ký tài khoản</h1>
+      <form class="cd-form frames" action='/auth/signup' method="POST" id="login">
+        <h1 class="center">Đăng ký tài khoản</h1>
 
-          <div class="form-group">
-            <div class="form-line ">
-              <i class="far fa-user"></i>
-              <input name="username" id="username" type="text" placeholder="Tên đăng ký" class="form-input">
-            </div>
-            <span class="form-message" id="submit"></span>
+        <div class="form-group">
+          <div class="form-line form-line-1 ">
+            <i class="far fa-user"></i>
+            <input name="username" id="username" type="text" placeholder="Tên đăng ký" class="form-input">
           </div>
-          <div class="form-group">
-            <div class="form-line">
+          <span class="form-message" id="submit"></span>
+        </div>
+        <div class="form-group">
+          <div class="form-line">
 
-              <i class="fas fa-key"></i>
-              <input class="form-input" id="password" type="password" name="password" placeholder="Mật khẩu">
-              <div id="eye">
-                <i class="far fa-eye" onclick="myFunction('password')"></i>
-              </div>
+            <i class="fas fa-key"></i>
+            <input class="form-input" id="password" type="password" name="password" placeholder="Mật khẩu">
+            <div id="eye">
+              <i class="far fa-eye" onclick="myFunction('password')"></i>
             </div>
-            <span class="form-message" id="submit"></span>
           </div>
-          <div class="form-group">
-            <div class="form-line">
+          <span class="form-message" id="submit"></span>
+        </div>
+        <div class="form-group">
+          <div class="form-line">
 
-              <i class="fas fa-key"></i>
-              <input class="form-input" id="password_confirmation" type="password" name="password_confirmation"
-                placeholder="Nhập Lại Mật khẩu">
-              <div id="eye">
-                <i class="far fa-eye" onclick="myFunction('password_confirmation')"></i>
-              </div>
+            <i class="fas fa-key"></i>
+            <input class="form-input" id="password_confirmation" type="password" name="password_confirmation"
+              placeholder="Nhập Lại Mật khẩu">
+            <div id="eye">
+              <i class="far fa-eye" onclick="myFunction('password_confirmation')"></i>
             </div>
-            <span class="form-message" id="submit"></span>
           </div>
-          <button type="submit" class="form-submit frames">Đăng Ký</button>
-        </form>
+          <span class="form-message" id="submit"></span>
+        </div>
+        <button type="submit" class="form-submit frames">Đăng Ký</button>
+      </form>
 
+    </div>
+
+    <div class="limiter">
+      <div class="container-login100">
+        <div class="wrap-login100" style="display: contents;">
+          <form class="login100-form validate-form" method="POST">
+            <span class="login100-form-title p-b-43">
+              Register
+            </span>
+            {{!-- <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+              <input onfocusout="checkExistedUsername()" id="username-box" class="input100" type="text" name="username">
+              <span class="focus-input100"></span>
+              <span class="label-input100">Username</span>
+            </div> --}}
+            <span id="usercheck-notify"></span>
+            {{!-- <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+              <input onfocusout="checkExistedEmail()" id="email-box" class="input100" type="text" name="email">
+              <span class="focus-input100"></span>
+              <span class="label-input100">Email</span>
+            </div> --}}
+            <span id="emailcheck-notify"></span>
+            <div class="wrap-input100 validate-input" data-validate="Password is required">
+              <input onkeyup="checkPassword()" id="password-box" class="input100" type="password" name="password">
+              <span class="focus-input100"></span>
+              <span class="label-input100">Password</span>
+            </div>
+            <span id="passwordcheck-notify"></span>
+            <div class="wrap-input100 validate-input" data-validate="Password is required">
+              <input onkeyup="checkRepassword()" id="repassword-box" class="input100" type="password" name="repassword">
+              <span class="focus-input100"></span>
+              <span class="label-input100">Confirm password</span>
+            </div>
+            <span id="repasswordcheck-notify"></span>
+            {{!-- <div class="container-login100-form-btn">
+              <button disabled="true" style="background-color: black;" id="register-button" type="submit"
+                class="login100-form-btn">
+                Register
+              </button>
+            </div> --}}
+            {{!-- <div class="text-center p-t-46 p-b-20">
+              <span class="txt2">
+                or Register by
+              </span>
+            </div> --}}
+          </form>
+        </div>
       </div>
     </div>
+
+    {{> footer}}
   </div>
   <script src="/js/auth.js"></script>
   <script>

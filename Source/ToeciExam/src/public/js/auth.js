@@ -26,7 +26,7 @@ function validator(options) {
       inputElement.parentElement.parentElement.classList.remove("valid");
       inputElement.parentElement.parentElement.classList.add("invalid");
     } else {
-      errorElement.innerText = '';
+      errorElement.innerText = "";
       inputElement.parentElement.parentElement.classList.remove("invalid");
       inputElement.parentElement.parentElement.classList.add("valid");
     }

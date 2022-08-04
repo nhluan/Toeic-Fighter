@@ -1915,3 +1915,12 @@ audio {
 .footer-choose-part {
     padding-top: 40px;
 }
+
+.image-ques {
+    width: 300px;
+}
+
+/* form sign in */
+.form-line-1  {
+    padding-right: 16px;
+}

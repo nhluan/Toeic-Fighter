@@ -41,7 +41,7 @@
                     <h1 class="center">Đăng nhập tài khoản</h1>
 
                     <div class="form-group">
-                        <div class="form-line ">
+                        <div class="form-line form-line-1 ">
                             <i class="far fa-user"></i>
                             <input name="username" id="username" type="text" placeholder="Tên đăng nhập"
                                 class="form-input">
@@ -60,12 +60,14 @@
                         </div>
                         <span class="form-message"></span>
                     </div>
+                    <p><a href="./signup.html" class="forget-signup">Quên mật khẩu?</a></p>
 
                     <input class="form-submit frames" type="submit" value="Đăng nhập">
-                    <p style="text-align: center;">không phải là thành viên? <a href="./signup">Đăng Ký</a></p>
+                    <p class="not-member" style="text-align: center;">Not a member? <a href="./signup" class="signup-in-signin">Register</a></p>
                 </form>
             </div>
         </div>
+        {{> footer}}
     </div>
     <script src="/js/auth.js"></script>
     <script>
