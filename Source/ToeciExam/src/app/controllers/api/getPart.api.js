@@ -11,7 +11,7 @@ const getPartTest = (req, res, next) => {
   console.log(test);
   if (part == 1) {
     console.log("\n\n\nPART1\n\n\n");
-    part1Model.find({ test }, function (err, parttest) {
+    part1Model.find(function (err, parttest) {
       if (err) {
         console.log("loi khon tim thay test");
         console.log(err);
@@ -29,7 +29,7 @@ const getPartTest = (req, res, next) => {
     res.render("part4_test", { test: test });
   } else if (part == 5) {
     console.log("\n\n\nPART5\n\n\n");
-    part5.find({ numTest: test }, function (err, parttest) {
+    part5.find(function (err, parttest) {
       console.log(parttest);
       if (err) {
         console.log("loix 1");
