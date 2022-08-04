@@ -1,7 +1,7 @@
 body {
-  background: linear-gradient(200deg, #0090ea, #d3d3d3b0, #0090ea);
+  background: #23a6d5;
+  color: #086dbf;
   font-size: 14px;
-  font-family: roboto, segoe ui, Arial, Segoe, dejavu sans, trebuchet ms, Verdana, sans-serif;
 }
 
 a {
@@ -64,18 +64,18 @@ a {
   margin-bottom: 20px;
   display: flex;
 }
+
 .form-line-2 {
   margin-right: 7px;
 }
+
 .form-input {
   background: transparent;
   outline: 0;
   flex-grow: 1;
   height: 20px;
   padding: 20px 12px;
-  border: 0;
   border-bottom: 2px solid silver;
-
   margin-bottom: -200px;
   margin-top: -2px;
 }
