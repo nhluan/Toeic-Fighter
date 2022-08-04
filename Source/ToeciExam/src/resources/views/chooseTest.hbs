@@ -5,7 +5,7 @@
             </div>
             <div class="col l-8 m-0 c-0">
                 <h1 class="heading-choose-part">Mini test1 - Part 1</h1>
-                <div class="col-box-part part-lead">
+                <div class="col-box-part part-lead" id="test">
                     <a href="/test1" class="part-1 choose-part">Part 1 - No.1</a>
                     <a href="/test2" class="part-1 choose-part">Part 1 - No.1</a>
                     <a href="/test3" class="part-1 choose-part">Part 1 - No.1</a>
@@ -132,15 +132,32 @@
             })
             .then(callback)
     }
-    function getTest(part1) {
+    function getTest(part1s) {
         part1s = part1s.data
         var listCodeBlock = document.getElementById('col-box-area-1')
-        numPart = part1s[0].num
+        let temp = part1s[0].num||part1s[0].numTest
+        numPart += 1
         part1s.forEach(function(part1) {
-            if(part1.num != numPart){
-                numPart +=1
+            if(part1.num) {
+                if(part1.num !== temp){
+                    temp = part1.num
+                    numPart +=1
+                }
+            }
+            else if(part1.numTest) {
+                if(part1.numTest !== temp){
+                    temp = part1.numTest
+                    numPart +=1
+                }
             }
         })
-        console.log(numPart)
+        return numPart
     }
+    function renderTest(num) {
+        
+    }
+    function startPart5(){
+        getQuestionPart1(getTest)
+    }
+    startPart5()
 </script>
