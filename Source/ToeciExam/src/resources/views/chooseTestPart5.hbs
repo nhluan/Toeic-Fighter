@@ -116,24 +116,20 @@
         </div>
     </div>
 </div>
-<script src="/js/handleChooseTestPart1.js"></script>
 
 <script>
-    const part1sApi = "http://localhost:5000/api/v1/getTest/part1"
     const part5sApi = "http://localhost:5000/api/v1/getTest/part5"
     let numPart = 0
     function getQuestionPart1(callback){
-        fetch(part1sApi)
+        fetch(part5sApi)
             .then(function(response) {
                 return response.json()
             })
             .then(callback)
     }
-    const n = chooseTest1()
-    console.log(n)
     function getTest(part1s) {
         part1s = part1s.data
-        var listCodeBlock = document.getElementById('col-box-area-1')
+        var listCodeBlock = document.getElementById('col-box-area-5')
         let temp = part1s[0].numTest
         numPart += 1
         part1s.forEach(function(part1) {
@@ -152,7 +148,7 @@
         let i = 0
         let htmls =''
         while(i<num) {
-            htmls +=`<a href="/test/part1/test1" class="part-1 choose-part">Đề số ${i+1}</a>`
+            htmls +=`<a href="/test${i+1}" class="part-1 choose-part">Đề số ${i+1}</a>`
             i+=1
         }
         console.log(htmls)

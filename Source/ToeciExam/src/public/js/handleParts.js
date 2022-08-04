@@ -2,8 +2,8 @@
 let result = []
 let userResult = []
 let point = 0
-const part1sApi = "http://localhost:5000/api/v1/getTest/part1/test1"
-const part5sApi = "http://localhost:5000/api/v1/getTest/part5/test1"
+const part1sApi = "http://localhost:5000/api/v1/getTest/part1"
+const part5sApi = "http://localhost:5000/api/v1/getTest/part5"
 
 function getQuestionPart1(callback){
     fetch(part1sApi)
@@ -28,9 +28,9 @@ function renderQuestionPart1(part1s) {
     })
     console.log(result)
     var htmls = part1s.map(function(part1) {
-        if(part1.num == 2){
+        if(part1.numTest == 2){
             return `
-                <div data-part="${part1.num}" class="question fullest-page-1" data-page="${part1.num}">
+                <div data-part="${part1.numTest}" class="question fullest-page-1" data-page="${part1.numTest}">
                     <p class="part-lead">Look at the picture and listen to the sentences. Choose the
                                 sentence that best describes the picture:</p>
                             <div class="myquestion-area form-group">
