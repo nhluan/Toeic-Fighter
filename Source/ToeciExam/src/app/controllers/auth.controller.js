@@ -17,7 +17,7 @@ class authController {
         .findOne({ username: username })
         .then(user => {
           if (user)
-            return res.status(400).json({ error: "username khong ton tai" });
+            return res.status(400).json({ error: "Tên đăng nhập đã tồn tại" });
           else {
             bcrypt.hash(password, 10, (err, hashed) => {
               if (err) {
@@ -37,7 +37,7 @@ class authController {
                     //return res.render("signup",{layout:false});
                   } else {
                     console.log("\n\nuser created\n\n");
-                    return res.json("tao tai khoan thanh cong")
+                    return res.json("Tạo tài khoản thành công")
                   }
                   // return res.redirect("/signin");
                 });
@@ -63,9 +63,9 @@ class authController {
         return res.status(401).json({ error: "lỗi tìm kiếm" });
       } else {
         if (!account) {
-          console.log("không tìm thấy user");
+          console.log("Không tìm thấy user");
           return res.status(401).json({
-            error: "không đúng username",
+            error: "Không đúng tên đăng nhập",
           });
         } else {
           console.log("\n\nuser found\n\n");
@@ -73,7 +73,7 @@ class authController {
             //console.log(account.password);
             // console.log(password);
             if (err) {
-              console.log("loi xac thuc password");
+              console.log("Lỗi xác thực mật khẩu");
               return res.status(401).json({
                 error_sever: "lỗi sever",
               });
@@ -90,7 +90,7 @@ class authController {
             }
             if (!result) {
               return res.status(401).json({
-                error_password: "mật khẩu không hợp lệ",
+                error_password: "Mật khẩu không hợp lệ",
               });
             }
           });

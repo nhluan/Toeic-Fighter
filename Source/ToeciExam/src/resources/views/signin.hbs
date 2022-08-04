@@ -41,7 +41,7 @@
                     <h1 class="center">Đăng nhập tài khoản</h1>
 
                     <div class="form-group">
-                        <div class="form-line ">
+                        <div class="form-line form-line-2">
                             <i class="far fa-user"></i>
                             <input name="username" id="username" type="text" placeholder="Tên đăng nhập"
                                 class="form-input">
@@ -60,14 +60,12 @@
                         </div>
                         <span class="form-message"></span>
                     </div>
-                    <p><a href="./signup.html">Quên mật khẩu?</a></p>
 
                     <input class="form-submit frames" type="submit" value="Đăng nhập">
-                    <p style="text-align: center;">Not a member? <a href="./signup">Register</a></p>
+                    <p style="text-align: center;">Không phải là thành viên? <a href="./signup">Đăng Ký</a></p>
                 </form>
             </div>
         </div>
-        {{> footer}}
     </div>
     <script src="/js/auth.js"></script>
     <script>
@@ -110,14 +108,28 @@
                     if (received_data.username === undefined) {
                         var formElement = document.querySelector('#signin');
                         console.log(formElement)
-                        var inputElement = formElement.querySelector(".form-message");
-                        console.log(inputElement)
 
-                        var errorElement =
-                            inputElement.parentElement.parentElement.querySelector(".form-message");
-                        inputElement.innerText = received_data["error"];
-                        inputElement.parentElement.classList.remove("valid");
-                        inputElement.parentElement.classList.add("invalid");
+                        if (received_data.error_password === undefined) {
+                            inputElement = formElement.querySelector('#username');
+                            var errorElement =
+                                inputElement.parentElement.parentElement.querySelector(".form-message");
+                            console.log(errorElement)
+
+                            errorElement.innerText = received_data["error"];
+                            errorElement.parentElement.classList.remove("valid");
+                            errorElement.parentElement.classList.add("invalid");
+                        }
+                        else {
+                            inputElement = formElement.querySelector('#password');
+
+
+                            var errorElement =
+                                inputElement.parentElement.parentElement.querySelector(".form-message");
+                            console.log(errorElement)
+                            errorElement.innerText = received_data["error_password"];
+                            errorElement.parentElement.classList.remove("valid");
+                            errorElement.parentElement.classList.add("invalid");
+                        }
                     }
                     else {
                         alert('Đăng Nhập thành công')
