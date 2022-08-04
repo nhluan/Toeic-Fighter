@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const part1Schema = new Schema({
-  num: String,
-  Q: String,
+  numTest: String,
+  numQ: String,
   audioLink: String,
   imageLink: String,
   Answer: {
