@@ -28,7 +28,8 @@ function renderQuestionPart1(part1s) {
     })
     console.log(result)
     var htmls = part1s.map(function(part1) {
-        return `
+        if(part1.num == 2){
+            return `
                 <div data-part="${part1.num}" class="question fullest-page-1" data-page="${part1.num}">
                     <p class="part-lead">Look at the picture and listen to the sentences. Choose the
                                 sentence that best describes the picture:</p>
@@ -66,6 +67,8 @@ function renderQuestionPart1(part1s) {
                                 <span class="form-message"></span>
                                 </div>
                         </div>`
+        }
+        
     })
     listCodeBlock.innerHTML = htmls.join('')
 }

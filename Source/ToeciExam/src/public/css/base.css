@@ -110,12 +110,10 @@ html {
 
 .container {
   background-color: #f5f5f5;
-  border-bottom: 4px solid var(--primary-color);
 }
 
 .container-blog {
   background-color: #f5f5f5;
-  border-bottom: 4px solid var(--primary-color);
   margin-top: var(--header-height);
 }
 

@@ -50,6 +50,7 @@ a {
 
 }
 
+.form-line-2,
 .form-line i {
   color: #0090ea;
   font-size: 14px;
@@ -63,7 +64,9 @@ a {
   margin-bottom: 20px;
   display: flex;
 }
-
+.form-line-2 {
+  margin-right: 7px;
+}
 .form-input {
   background: transparent;
   outline: 0;
@@ -83,7 +86,7 @@ a {
 
 #eye {
   position: relative;
-  top: 5px;
+  top: -3px;
   right: 22px;
 }
 
