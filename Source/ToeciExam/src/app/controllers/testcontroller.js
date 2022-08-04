@@ -2,7 +2,6 @@ const Test = require("../models/test.model");
 const part5 = require("../models/part5.model");
 const part1Model = require("../models/part1.model");
 const part5Answer = require("../models/part5Answer.model");
-const fs = require('fs')
 
 class testController {
   showTest(req, res, next) {
@@ -16,9 +15,11 @@ class testController {
     if (part >= 1 && part <= 7) {
       Test.find({ part }, function (err, tests) {
         if (err) {
+          console.log("loix 1");
+          console.log(err);
           res.render("error404");
         }
-        res.render("chooseTest");
+        res.render("test", { tests });
       });
     } else res.render("error404");
   }
@@ -29,18 +30,15 @@ class testController {
     var test = req.params.test;
 
     if (part == 1) {
+      console.log("\n\n\nPART1\n\n\n");
       part1Model.find({ test }, function (err, parttest) {
         if (err) {
           console.log("loix 1");
           console.log(err);
           res.render("test", { layout: false });
         }
-<<<<<<< HEAD
-        res.render("part1_test");
-=======
         return res.render("part1_test", { parttest });
         //       return res.json(parttest);
->>>>>>> 1ccc0501b79e95e9e45760bf8a092fec5dd1db4f
       });
     } else if (part == 2) {
       res.render("part2_test", { test: test });
@@ -53,10 +51,10 @@ class testController {
         if (err) {
           console.log("loix 1");
           console.log(err);
-          // res.render("test", { layout: false });
-          res.json(parttest);
+          res.render("test", { layout: false });
+          // res.json(parttest);
         }
-        res.render("part5_test", { parttest });
+        return res.render("part5_test", { parttest });
       });
     } else if (part == 6) {
       res.render("part6_test", { test: test });
