@@ -1913,6 +1913,10 @@ audio {
     font-weight: 400;
 }
 
+.choose-part:hover {
+    cursor: pointer;
+}
+
 .footer-choose-part {
     padding-top: 40px;
 }
@@ -1924,4 +1928,11 @@ audio {
 /* form sign in */
 .form-line-1  {
     padding-right: 16px;
+}
+
+#content-part {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }

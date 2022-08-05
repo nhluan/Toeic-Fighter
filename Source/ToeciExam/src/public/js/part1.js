@@ -1,4 +1,3 @@
-//render point and result
 
 function startPart1(){
     getQuestionPart1(renderQuestionPart1)
@@ -77,5 +76,7 @@ function countDown(h, m, s) {
     });
 
 }
-
 countDown(0, 5, 0)
+
+
+
