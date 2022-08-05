@@ -2,8 +2,8 @@
 let result = []
 let userResult = []
 let point = 0
-const part1sApi = "http://localhost:5000/api/v1/getTest/part1"
-const part5sApi = "http://localhost:5000/api/v1/getTest/part5"
+const part1sApi = "http://localhost:5000/api/v1/getPartTest/part1"
+const part5sApi = "http://localhost:5000/api/v1/getPartTest/part5"
 
 function getQuestionPart1(callback){
     fetch(part1sApi)
