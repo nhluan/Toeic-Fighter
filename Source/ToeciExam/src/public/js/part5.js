@@ -80,8 +80,7 @@ function countDown(h, m, s) {
             Validator.isRequired('input[name="q27"]'),
             Validator.isRequired('input[name="q28"]'),
             Validator.isRequired('input[name="q29"]'),
-            Validator.isRequired('input[name="q30"]'),
-            Validator.isRequired('input[name="q31"]'),
+            Validator.isRequired('input[name="q30"]')
         ],
         onSubmit: function (data) {
             console.log(data)
