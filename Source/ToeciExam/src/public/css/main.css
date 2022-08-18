@@ -955,6 +955,8 @@
 /* Slider */
 .slider {
     position: relative;
+    top: -10px;
+    left: 7px;
     /* padding-top: 50%; */
     /* background: url(/assets/img/background-img-home.jpg) top center / cover no-repeat; */
     margin-top: var(--header-height);

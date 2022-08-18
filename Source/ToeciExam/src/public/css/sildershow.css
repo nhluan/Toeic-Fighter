@@ -16,7 +16,7 @@
     background-repeat: no-repeat;
     float: left;
     height: 608px;
-    width: 1509px;
+    width: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,7 +40,7 @@
 .review-comment {
     float: left;
     height: 100%;
-    width: 669px;
+    width: 20%;
     /* display: flex;
     justify-content: center;
     align-items: center; */
