@@ -159,7 +159,7 @@ function renderPoint() {
                 }
             }
         }
-        else if(part==1 && test ==2){
+        else if(part==5 && test ==2){
             if(i > 29) {
                 if(result[i] == userResult[i-30]){
                     point += 5
@@ -195,7 +195,7 @@ function renderResult(result){
                 return `<li class="answer-item">${index+1}. ${res}</li>`
             }
         }
-        else if(part==1 && test ==2){
+        else if(part==5 && test ==2){
             if(index > 29) {
                 return `<li class="answer-item">${index-29}. ${res}</li>`
             }
