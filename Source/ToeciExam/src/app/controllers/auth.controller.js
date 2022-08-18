@@ -56,7 +56,7 @@ class authController {
     const { username, password } = req.body;
     console.log(req.body);
     accountModel.findOne({ username }, (err, account) => {
-      console.log(account);
+      console.log(account)
       if (err) {
         //loi server
         console.log("loi tim kiem account");
@@ -73,7 +73,7 @@ class authController {
             //console.log(account.password);
             // console.log(password);
             if (err) {
-              console.log("Lỗi xác thực mật khẩu");
+              console.log("Lỗi xác thực mật khẩu")  ;
               return res.status(401).json({
                 error_sever: "lỗi sever",
               });
